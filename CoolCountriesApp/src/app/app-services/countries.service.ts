@@ -9,22 +9,27 @@ import { map, take } from 'rxjs/operators';
 })
 export class CountriesService {
 
-  apiURL = "https://restcountries.eu/rest/v2/region/europe" //filtered by european countries
+  apiURL = "https://restcountries.eu/rest/v2" 
   constructor(private http: HttpClient) { }
 
-  getCountry(code: string){
+  getCountriesFiltered(filter: string[]){
 
-    return this.http.get<Country[]>(this.apiURL)
+  }
+
+  getCountry(code: string): Observable<Country>{
+
+    return this.http.get<Country>(this.apiURL + "/alpha/" + code)
+
   }
 
 
-  getCountries(): Observable<Country[]>{
+  getCountries(filter?: string[]): Observable<Country[]>{
 
-    return this.http.get<Country[]>(this.apiURL).pipe(
-      map((data: Country[]) => {
-        return data;
-      })
-      )
+    if(filter){
+
+    }else{
+      return this.http.get<Country[]>(this.apiURL + "/region/europe")
+    }
 
   }
 

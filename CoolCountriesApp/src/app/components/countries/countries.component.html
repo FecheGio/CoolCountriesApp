@@ -1,9 +1,21 @@
+<h2 >Countries</h2>
 
+  
 
-<h2>Countries</h2>
+<button mat-raised-button color="accent" (click)="showingCountries = !showingCountries">Click me!</button>
 
-<button mat-raised-button color="accent">Click me!</button>
+<div *ngIf="showingCountries == true">
 
-<ul>
-  <li *ngFor="let country of coutries"> {{country.name}} </li>
-</ul>
+    <mat-list>
+        <mat-list-item *ngFor="let country of countries" routerLink="/detail/{{country.alpha3Code}}"> 
+            <img matListAvatar src="http://flags.fmcdn.net/data/flags/w580/se.png">
+            <h3 matLine> {{country.name}} </h3>
+            <h4 matLine>
+            <span> Capital: {{country.capital}} </span>
+            </h4>
+        </mat-list-item>
+      </mat-list>
+
+</div>
+  
+<app-country-detail [country]="selectedCountry"></app-country-detail>
