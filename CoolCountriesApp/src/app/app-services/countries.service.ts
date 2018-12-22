@@ -23,10 +23,13 @@ export class CountriesService {
   }
 
 
-  getCountries(filter?: string[]): Observable<Country[]>{
+  getCountries(filter?: string): Observable<Country[]>{
 
     if(filter){
-
+      if(filter = "EU") 
+      return this.http.get<Country[]>(this.apiURL + "/regionalbloc/eu")
+      if(filter = "EFTA") 
+      return this.http.get<Country[]>(this.apiURL + "/regionalbloc/EFTA")
     }else{
       return this.http.get<Country[]>(this.apiURL + "/region/europe")
     }
