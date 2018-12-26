@@ -12,12 +12,12 @@
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
-$CoolCountriesApp-primary: mat-palette($mat-green);
+$CoolCountriesApp-primary: mat-palette($mat-green, A200);
 //$CoolCountriesApp-accent: mat-palette($mat-pink, A200, A100, A400);
-$CoolCountriesApp-accent: mat-palette($mat-lime, A200, A100, A400);
+$CoolCountriesApp-accent: mat-palette($mat-lime, 200);
 
 // The warn palette is optional (defaults to red).
-$CoolCountriesApp-warn: mat-palette($mat-deep-orange);
+$CoolCountriesApp-warn: mat-palette($mat-deep-orange, A200);
 
 // Create the theme object (a Sass map containing all of the palettes).
 $CoolCountriesApp-theme: mat-light-theme($CoolCountriesApp-primary, $CoolCountriesApp-accent, $CoolCountriesApp-warn);

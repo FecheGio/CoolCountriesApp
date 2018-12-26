@@ -14,19 +14,30 @@ export class CountriesComponent implements OnInit {
   showingCountries = false;
   selectedCountry: Country;
   panelOpenState = false;
+  filter = "";
   constructor(private coutriesService: CountriesService) { }
 
   ngOnInit() {
-    this.getCountries()
+   // this.getCountries()
   }
   
   onSelect(country: Country): void {
     this.selectedCountry = country;
   }
 
-  getCountries(){
-    //Este no funciona
-    this.coutriesService.getCountries().subscribe(data => {
+  submit(filter: string){
+    if(filter == "1") this.filter = "EU"
+    if(filter == "2") this.filter = "EFTA"
+    if(filter == "3") this.filter = "EURcurrency"
+  
+    this.getCountries(this.filter)
+  }
+
+  getCountries(filter?: string){
+    
+    this.countries = []
+
+    this.coutriesService.getCountries(filter).subscribe(data => {
       for (let i = 0; i < data.length; i++) {
         const country: Country = data[i];
         country.name = (data[i])['name']
@@ -54,7 +65,7 @@ export class CountriesComponent implements OnInit {
       }
     })
 
-    console.log(this.countries)
+    //console.log(this.countries)
    
   }
 
