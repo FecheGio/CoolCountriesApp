@@ -57,7 +57,7 @@ mat-toolbar-row {
   }
 
 .div {
-    margin: 10;
+    margin: 50;
 }
 
 .container {
@@ -75,6 +75,6 @@ mat-toolbar-row {
 .mat-button.mat-primary .mat-button-focus-overlay {
     background-color: transparent;
 }
-.h1{
+h1{
     text-align: center;
 }

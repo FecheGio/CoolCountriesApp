@@ -23,6 +23,15 @@ export class CountryDetailComponent implements OnInit {
     this.getCountry();
   }
   
+  addFavorite(_country: Country){
+    if(_country.favorite == false || _country.favorite == null){
+      this.country.favorite = true
+    }else{
+      this.country.favorite = false
+    }
+    
+  }
+
   getCountry(){
     const code = this.route.snapshot.paramMap.get('code');
     this.countryService.getCountry(code)

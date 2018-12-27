@@ -1,0 +1,11 @@
+.selected-value {
+    margin: 15px 0;
+  }
+
+mat-card{
+  background-color:#f0f4c3;
+}
+
+.align-center{
+  text-align: center; 
+}

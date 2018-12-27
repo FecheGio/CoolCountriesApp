@@ -15,6 +15,7 @@ export class CountriesComponent implements OnInit {
   selectedCountry: Country;
   panelOpenState = false;
   filter = "";
+  message = "";
   constructor(private coutriesService: CountriesService) { }
 
   ngOnInit() {
@@ -26,9 +27,18 @@ export class CountriesComponent implements OnInit {
   }
 
   submit(filter: string){
-    if(filter == "1") this.filter = "EU"
-    if(filter == "2") this.filter = "EFTA"
-    if(filter == "3") this.filter = "EURcurrency"
+    if(filter == "1"){
+      this.filter = "EU"
+      this.message = "countries that belongs to the European Union"
+    } 
+    if(filter == "2"){
+      this.filter = "EFTA"
+      this.message = "countries that belongs to the European Free Trade Association"
+    }
+    if(filter == "3"){
+      this.filter = "EURcurrency"
+      this.message = "countries that uses EURO as currency"
+    } 
   
     this.getCountries(this.filter)
   }
@@ -60,12 +70,15 @@ export class CountriesComponent implements OnInit {
         country.subregion = (data[i])['subregion']
         country.timezones = (data[i])['timezones']
         country.topLevelDomain = (data[i])['topLevelDomain']
+        country.currencies = (data[i])['currencies']
+        country.languages = (data[i])['languages']
+        country.regionalBlocs = (data[i])['regionalBlocs']
 
         this.countries.push(country)        
       }
+      console.log(this.countries[1])
     })
 
-    //console.log(this.countries)
    
   }
 

@@ -1,11 +1,41 @@
-<button mat-raised-button color="accent" routerLink="">Back</button>
 
 <div *ngIf="country">
 
-    <h2>{{country.name}} Details</h2>
-    <div><span>Code: </span>{{country.alpha3Code}}</div>
-    <div>
-      <p> {{country.name}} </p>
-    </div>
+    <mat-card class="example-card">
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title> {{country.name}} </mat-card-title>
+          <mat-card-subtitle> {{country.nativeName}} </mat-card-subtitle>
+        </mat-card-header>
+        <img mat-card-image src="{{country.flag}}" alt="Flag of {{country.name}}">
+        <mat-card-content>
+          <p><strong>Capital city: </strong> {{country.capital}} </p>
+          <p><strong>Population: </strong> {{country.population}} </p>
+          <p><strong>Capital city: </strong> {{country.capital}} </p>
+          <div *ngFor="let language of country.languages">
+              <p> {{language.name}} - {{language.nativeName}}</p>
+             </div>
+          <p><strong>Region: </strong> {{country.region}} </p>
+          <p><strong>Subregion: </strong> {{country.subregion}} </p>
+          <p><strong>Time zones: </strong> </p>
+           <div *ngFor="let timezone of country.timezones">
+            <p> {{timezone}} </p>
+           </div>
+          <p><strong>Top level domain: </strong> {{country.topLevelDomain}} </p>
+
+        </mat-card-content>
+        <mat-card-actions>
+        
+        
+          <div *ngIf="!country.favorite">
+            <button mat-raised-button (click)="addFavorite(country)"><i class="far fa-star"></i></button>
+          </div>
+          <div *ngIf="country.favorite">
+            <button mat-raised-button color="accent" (click)="addFavorite(country)"><i class="fas fa-star"></i></button>
+          </div>
+          <div fxFlex></div>
+          <button mat-raised-button color="warn" routerLink="">Back</button>
+        </mat-card-actions>
+      </mat-card>
   
   </div>

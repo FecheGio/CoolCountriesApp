@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { FlexLayoutModule } from "@angular/flex-layout";
 
 //Material imports
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -35,6 +36,7 @@ import { FooterComponent } from './components/footer/footer.component';
     
   ],
   imports: [
+    FlexLayoutModule,
     MatInputModule,
     MatRadioModule,
     MatToolbarModule,

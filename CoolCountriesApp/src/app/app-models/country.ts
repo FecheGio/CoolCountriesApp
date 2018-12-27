@@ -18,11 +18,31 @@ export class Country {
     public borders: string[]
     public nativeName: string
     public numericCode: string
-    //public currencies: Currency[]
-    //public languages: Language[]
-    //public translations: Translation[]
+    public currencies: Currency[]
+    public languages: Language[]
     public flag: string
-    //public regionalBlocs: RegionalBloc[]
+    public regionalBlocs: RegionalBloc[]
     public cioc: string
+    public favorite: boolean
 }
+
+interface RegionalBloc {
+    acronym: string;
+    name: string;
+    otherAcronyms: any[];
+    otherNames: any[];
+  }
+
+  interface Language {
+    iso639_1: string;
+    iso639_2: string;
+    name: string;
+    nativeName: string;
+  }
+
+  interface Currency {
+    code: string;
+    name: string;
+    symbol: string;
+  }
 
