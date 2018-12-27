@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { CountriesService } from 'src/app/app-services/countries.service';
 import { Country } from 'src/app/app-models/country';
 
@@ -17,6 +17,8 @@ export class CountriesComponent implements OnInit {
   filter = "";
   message = "";
   constructor(private coutriesService: CountriesService) { }
+  
+  @Input() favorite: boolean;
 
   ngOnInit() {
    // this.getCountries()
@@ -73,6 +75,7 @@ export class CountriesComponent implements OnInit {
         country.currencies = (data[i])['currencies']
         country.languages = (data[i])['languages']
         country.regionalBlocs = (data[i])['regionalBlocs']
+        country.favorite = this.favorite
 
         this.countries.push(country)        
       }

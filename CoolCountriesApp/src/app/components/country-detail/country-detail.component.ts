@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Country } from 'src/app/app-models/country';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
@@ -12,6 +12,7 @@ import { CountriesService } from 'src/app/app-services/countries.service';
 export class CountryDetailComponent implements OnInit {
 
   @Input() country: Country;
+  @Output() public favorite = new EventEmitter();
 
   constructor(
     private countryService: CountriesService,
@@ -22,6 +23,8 @@ export class CountryDetailComponent implements OnInit {
   ngOnInit(){
     this.getCountry();
   }
+
+
   
   addFavorite(_country: Country){
     if(_country.favorite == false || _country.favorite == null){
@@ -29,6 +32,8 @@ export class CountryDetailComponent implements OnInit {
     }else{
       this.country.favorite = false
     }
+
+    this.favorite.emit(this.country.favorite)
     
   }
 

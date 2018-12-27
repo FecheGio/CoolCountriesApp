@@ -20,6 +20,7 @@ import {
   MatSortModule,
   MatTableModule,
   MatIconModule } from "@angular/material";
+  import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 import { CountryDetailComponent } from './components/country-detail/country-detail.component';
@@ -36,6 +37,7 @@ import { FooterComponent } from './components/footer/footer.component';
     
   ],
   imports: [
+    MatSnackBarModule,
     FlexLayoutModule,
     MatInputModule,
     MatRadioModule,
